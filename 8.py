@@ -5,6 +5,7 @@ def read_settings(f_name): # функция чтения данных из фа�
     with open(f_name, 'r') as settings_f:
         return [float(i) for i in settings_f.read().split('\n')]
     
+
 voltstep, period = read_settings("settings.txt")
 
 data_ar = np.loadtxt("data.txt", dtype = float) # чтение данных из файла и запись их в массив
@@ -18,12 +19,14 @@ charge_time = np.argmax(data_ar) * period # время зарядки конде
 discharge_time = dur_time - charge_time # время разрядки конденсатора
 max_volt = 3.5
 
+
 fig, ax = plt.subplots(figsize = (15, 10), dpi = 200) # создаем пространство для графика
 ax.plot(t, data_ar, marker = "o", markersize = 5, markevery = 100, markerfacecolor = "red", label = 'V(t)', color = 'blue') # устанавливаем основные параметры графика
 
 ax.set_title('Зависимость напряжения на конденсаторе от времени по мере его зарядки и разрядки', fontsize = 17, wrap = True)
 ax.set_xlabel('Время, с') 
 ax.set_ylabel('Напряжение, В')
+
 ax.set_xlim(0, round(dur_time))
 ax.set_ylim(0, max_volt)
 

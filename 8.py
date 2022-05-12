@@ -29,8 +29,8 @@ ax.text(60, 2.34, 'Время зарядки: {:.2f} c'.format(charge_time), bbo
 ax.text(60, 2, 'Время разрядки: {:.2f} c'.format(discharge_time), bbox = dict(facecolor = 'red', alpha = 0.5))
 
 ax.minorticks_on() # включаем метки
-ax.grid(which = 'major', linewidth = 2) 
-ax.grid(which = 'minor', linestyle = ':')
+ax.grid(which = 'major', linewidth = 2) # делаем основные и второстепенные линии сетки, устанавливаем ширину линий
+ax.grid(which = 'minor', linestyle = ':') # пунктирные линии
 
 ax.legend()
 
